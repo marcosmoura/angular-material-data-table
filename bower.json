@@ -1,0 +1,29 @@
+{
+  "name": "angular-material-data-table",
+  "description": "Angular Material Data Table",
+  "developers": "Marcos Moura",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcosmoura/angular-material-data-table.git"
+  },
+  "authors": [
+    "Marcos Moura <marcosvmmoura@gmail.com>"
+  ],
+  "keywords": [
+    "Angular",
+    "Material",
+    "Design",
+    "Table",
+    "Data"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+
+  }
+}
