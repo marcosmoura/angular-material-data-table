@@ -27,6 +27,7 @@ export default {
     joinPath(srcFolder, '**/*.js'),
     'index.js'
   ],
+  srcStylesheets: joinPath(srcFolder, '**/*.scss'),
   mainFile,
   mainScript,
   mainStylesheet
