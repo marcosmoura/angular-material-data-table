@@ -1,0 +1,9 @@
+body {
+  font-family: RobotoDraft;
+  font-weight: 500;
+}
+
+.main-wrapper {
+  width: 800px;
+  margin: 24px auto;
+}

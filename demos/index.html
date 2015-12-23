@@ -3,12 +3,75 @@
   <head>
     <meta charset="utf-8">
     <title>Angular Material Data Table</title>
+    <link href="angular-material/angular-material.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic" rel="stylesheet">
     <link href="angular-material-data-table.css" rel="stylesheet">
+    <link href="demo.css" rel="stylesheet">
   </head>
 
-  <body>
-    <h1>Howdy!</h1>
+  <body ng-app="angular-material-data-table">
+    <md-card class="main-wrapper md-whiteframe-z2">
+      <md-card-title>
+        <span class="md-headline">Angular Material Data Table</span>
+      </md-card-title>
 
+      <table>
+        <thead>
+          <tr>
+            <th class="md-column-selection">
+              <md-checkbox></md-checkbox>
+            </th>
+            <th>Column</th>
+            <th>Column</th>
+            <th>Column</th>
+            <th>Column</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox></md-checkbox>
+            </td>
+            <td>Row</td>
+            <td class="md-is-numeric">3%</td>
+            <td>Row</td>
+            <td>Row</td>
+          </tr>
+
+          <tr class="md-is-selected">
+            <td class="md-column-selection">
+              <md-checkbox ng-checked="true"></md-checkbox>
+            </td>
+            <td>Row</td>
+            <td class="md-is-numeric">3%</td>
+            <td>Row</td>
+            <td>Row</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr class="md-is-selected">
+            <td class="md-column-selection">
+              <md-checkbox ng-checked="true"></md-checkbox>
+            </td>
+            <td>Row</td>
+            <td class="md-is-numeric">3%</td>
+            <td>Row</td>
+            <td>Row</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-card>
+
+    <script src="angular/angular.min.js"></script>
+    <script src="angular-animate/angular-animate.min.js"></script>
+    <script src="angular-aria/angular-aria.min.js"></script>
+    <script src="angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="angular-messages/angular-messages.min.js"></script>
+    <script src="angular-material/angular-material.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
     <script src="angular-material-data-table.js"></script>
   </body>
 </html>

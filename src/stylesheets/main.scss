@@ -1,6 +1,72 @@
-$body-color: #fafafa;
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 
-body {
-  background-color: $body-color;
-  font-family: Roboto, 'Open Sans', Arial, sans-serif;
+  tbody tr {
+    &:hover {
+      background-color: #eee;
+    }
+
+    &.md-is-selected {
+      background-color: #f5f5f5;
+    }
+  }
+
+  tr {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  td,
+  th {
+    box-sizing: border-box;
+    padding-right: 32px;
+    padding-left: 24px;
+
+    &:last-child,
+    &.md-column-selection {
+      padding-right: 24px;
+    }
+
+    &.md-column-selection {
+      width: 18px;
+
+      + th,
+      + td {
+        padding-left: 0;
+      }
+    }
+  }
+
+  th {
+    height: 56px;
+    color: rgba(0, 0, 0, .54);
+    font-size: 12px;
+    text-align: left;
+  }
+
+  td {
+    height: 48px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgba(0, 0, 0, .87);
+    font-size: 13px;
+    line-height: 18px;
+
+    &.md-is-numeric {
+      text-align: right;
+    }
+  }
+
+  md-checkbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+  }
+}
+
+md-card > table {
+  tfoot tr {
+    border-radius: 0 0 2px 2px;
+  }
 }
