@@ -1,6 +1,6 @@
 (function(angular) {
 
-  let ngMaterialDataTable = angular.module('angular-material-data-table', [
+  angular.module('angular-material-data-table', [
     'ngMaterial'
   ]);
 
