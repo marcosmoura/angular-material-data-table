@@ -76,9 +76,10 @@
     .md-table-column-text {
       width: 100%;
       margin: 0 -24px;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
+      line-height: 1.4em;
     }
 
     md-icon.material-icons {
@@ -138,7 +139,7 @@
     font-size: 12px;
     color: rgba(0, 0, 0, .54);
 
-    .md-table-previous-page {
+    .md-table-previous {
       margin-right: 2px;
       margin-left: 18px;
     }
