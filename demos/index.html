@@ -12,54 +12,228 @@
 
   <body ng-app="angular-material-data-table">
     <md-card class="main-wrapper md-whiteframe-z2">
-      <md-card-title>
-        <span class="md-headline">Angular Material Data Table</span>
-      </md-card-title>
+      <div layout="column" layout-fill>
+        <md-toolbar>
+          <h1 class="md-toolbar-tools">Nutrition</h1>
+        </md-toolbar>
+      </div>
 
-      <table>
+      <table ng-cloak>
         <thead>
           <tr>
             <th class="md-column-selection">
-              <md-checkbox></md-checkbox>
+              <md-checkbox aria-label="Select all rows"></md-checkbox>
             </th>
-            <th>Column</th>
-            <th>Column</th>
-            <th>Column</th>
-            <th>Column</th>
+
+            <th class="md-has-sort md-sorted">
+              <md-icon class="material-icons">arrow_upward</md-icon>
+              <span class="md-column-text">Dessert (100g serving)</span>
+            </th>
+
+            <th class="md-has-sort">
+              <md-icon class="material-icons">arrow_upward</md-icon>
+              <span class="md-column-text">Calories</span>
+            </th>
+
+            <th class="md-has-sort">
+              <md-icon class="material-icons">arrow_upward</md-icon>
+              <span class="md-column-text">Fat (g)</span>
+            </th>
+
+            <th>
+              <span class="md-column-text">Carbs (g)</span>
+            </th>
+
+            <th>
+              <span class="md-column-text">Protein (g)</span>
+            </th>
+
+            <th>
+              <span class="md-column-text">Sodium (mg)</span>
+            </th>
+
+            <th>
+              <span class="md-column-text">Calcium (%)</span>
+            </th>
+
+            <th>
+              <span class="md-column-text">Iron (%)</span>
+            </th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
             <td class="md-column-selection">
-              <md-checkbox></md-checkbox>
+              <md-checkbox aria-label="Select row"></md-checkbox>
             </td>
-            <td>Row</td>
-            <td class="md-is-numeric">3%</td>
-            <td>Row</td>
-            <td>Row</td>
+            <td>Frozen Yogurt</td>
+            <td class="md-is-numeric">159</td>
+            <td class="md-is-numeric">6.0</td>
+            <td class="md-is-numeric">6.0</td>
+            <td class="md-is-numeric">6.0</td>
+            <td class="md-is-numeric">6.0</td>
+            <td class="md-is-numeric">6.0</td>
+            <td class="md-is-numeric">6.0</td>
           </tr>
 
           <tr class="md-is-selected">
             <td class="md-column-selection">
-              <md-checkbox ng-checked="true"></md-checkbox>
+              <md-checkbox aria-label="Select row" ng-checked="true"></md-checkbox>
             </td>
-            <td>Row</td>
-            <td class="md-is-numeric">3%</td>
-            <td>Row</td>
-            <td>Row</td>
+            <td>Ice cream Sandwich</td>
+            <td class="md-is-numeric">237</td>
+            <td class="md-is-numeric">9.0</td>
+            <td class="md-is-numeric">9.0</td>
+            <td class="md-is-numeric">9.0</td>
+            <td class="md-is-numeric">9.0</td>
+            <td class="md-is-numeric">9.0</td>
+            <td class="md-is-numeric">9.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Eclair</td>
+            <td class="md-is-numeric">262</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Gingerbread</td>
+            <td class="md-is-numeric">305</td>
+            <td class="md-is-numeric">3.7</td>
+            <td class="md-is-numeric">3.7</td>
+            <td class="md-is-numeric">3.7</td>
+            <td class="md-is-numeric">3.7</td>
+            <td class="md-is-numeric">3.7</td>
+            <td class="md-is-numeric">3.7</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Honeycomb</td>
+            <td class="md-is-numeric">356</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+            <td class="md-is-numeric">16.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Jelly bean</td>
+            <td class="md-is-numeric">375</td>
+            <td class="md-is-numeric">0.0</td>
+            <td class="md-is-numeric">0.0</td>
+            <td class="md-is-numeric">0.0</td>
+            <td class="md-is-numeric">0.0</td>
+            <td class="md-is-numeric">0.0</td>
+            <td class="md-is-numeric">0.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Cupcake</td>
+            <td class="md-is-numeric">392</td>
+            <td class="md-is-numeric">0.2</td>
+            <td class="md-is-numeric">0.2</td>
+            <td class="md-is-numeric">0.2</td>
+            <td class="md-is-numeric">0.2</td>
+            <td class="md-is-numeric">0.2</td>
+            <td class="md-is-numeric">0.2</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Donut</td>
+            <td class="md-is-numeric">308</td>
+            <td class="md-is-numeric">3.2</td>
+            <td class="md-is-numeric">3.2</td>
+            <td class="md-is-numeric">3.2</td>
+            <td class="md-is-numeric">3.2</td>
+            <td class="md-is-numeric">3.2</td>
+            <td class="md-is-numeric">3.2</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Marshmallow</td>
+            <td class="md-is-numeric">452</td>
+            <td class="md-is-numeric">25.0</td>
+            <td class="md-is-numeric">25.0</td>
+            <td class="md-is-numeric">25.0</td>
+            <td class="md-is-numeric">25.0</td>
+            <td class="md-is-numeric">25.0</td>
+            <td class="md-is-numeric">25.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Lollipop</td>
+            <td class="md-is-numeric">518</td>
+            <td class="md-is-numeric">26.0</td>
+            <td class="md-is-numeric">26.0</td>
+            <td class="md-is-numeric">26.0</td>
+            <td class="md-is-numeric">26.0</td>
+            <td class="md-is-numeric">26.0</td>
+            <td class="md-is-numeric">26.0</td>
+          </tr>
+
+          <tr>
+            <td class="md-column-selection">
+              <md-checkbox aria-label="Select row"></md-checkbox>
+            </td>
+            <td>Kitkat</td>
+            <td class="md-is-numeric">236</td>
+            <td class="md-is-numeric">30.0</td>
+            <td class="md-is-numeric">30.0</td>
+            <td class="md-is-numeric">30.0</td>
+            <td class="md-is-numeric">30.0</td>
+            <td class="md-is-numeric">30.0</td>
+            <td class="md-is-numeric">30.0</td>
           </tr>
         </tbody>
 
         <tfoot>
-          <tr class="md-is-selected">
-            <td class="md-column-selection">
-              <md-checkbox ng-checked="true"></md-checkbox>
+          <tr>
+            <td colspan="9">
+              <div class="md-pagination">
+                <span>Rows per page:</span>
+                <md-select ng-init="size=10" ng-model="size" aria-label="Rows per page">
+                  <md-option value="10">10</md-option>
+                  <md-option value="25">25</md-option>
+                  <md-option value="50">50</md-option>
+                  <md-option value="100">100</md-option>
+                </md-select>
+                <span>1-10 of 100</span>
+                <md-button class="md-icon-button material-icons md-previous-page" aria-label="Previous Page">keyboard_arrow_left</md-button>
+                <md-button class="md-icon-button material-icons md-next-page" aria-label="Next Page" ng-disabled="true">keyboard_arrow_right</md-button>
+              </div>
             </td>
-            <td>Row</td>
-            <td class="md-is-numeric">3%</td>
-            <td>Row</td>
-            <td>Row</td>
           </tr>
         </tbody>
       </table>
