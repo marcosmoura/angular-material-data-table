@@ -1,8 +1,11 @@
 body {
-  font-family: RobotoDraft;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #eee;
+  font-family: RobotoDraft, Roboto, sans-serif;
 }
 
 .main-wrapper {
   width: 985px;
-  margin: 24px auto;
+  margin: 0 auto 24px;
 }

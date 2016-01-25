@@ -10,15 +10,51 @@
     <link href="demo.css" rel="stylesheet">
   </head>
 
-  <body ng-app="angular-material-data-table">
-    <md-card class="main-wrapper md-whiteframe-z2">
-      <div layout="column" layout-fill>
-        <md-toolbar>
-          <h1 class="md-toolbar-tools">Nutrition</h1>
-        </md-toolbar>
-      </div>
+  <body ng-app="angular-material-data-table" ng-controller="DessertsController as desserts">
+    <!-- <md-table md-card="md-whiteframe-z2" md-selection="desserts.selectedDesserts" md-pagination="[10, 20, 50, 100]">
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Nutrition</h1>
+      </md-toolbar>
 
-      <md-table class="md-table">
+      <md-table-head>
+        <md-table-cell md-sort="dessert">Dessert (100g serving)</md-table-cell>
+        <md-table-cell md-numeric md-sort="calories">Calories</md-table-cell>
+        <md-table-cell md-numeric md-sort="fat">Fat (g)</md-table-cell>
+        <md-table-cell md-numeric md-sort="carbs">Carbs (g)</md-table-cell>
+        <md-table-cell md-numeric>Protein (g)</md-table-cell>
+        <md-table-cell md-numeric>Sodium (mg)</md-table-cell>
+        <md-table-cell md-numeric>Calcium (%)</md-table-cell>
+        <md-table-cell md-numeric>Iron (%)</md-table-cell>
+      </md-table-head>
+
+      <md-table-body md-data="dessert in desserts.get()">
+        <md-table-cell>{{ dessert.name }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.calories }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.fat }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.carbs }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.protein }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.sodium }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.calcium }}</md-table-cell>
+        <md-table-cell md-numeric>{{ dessert.iron }}</md-table-cell>
+      </md-table-body>
+    </md-table> -->
+
+    <md-card class="md-whiteframe-z2">
+      <div class="md-table">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h1 flex>Nutrition</h1>
+
+            <md-button class="md-icon-button">
+              <md-icon class="material-icons">search</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button">
+              <md-icon class="material-icons">more_vert</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+
         <div class="md-table-container">
           <table>
             <thead>
@@ -27,43 +63,48 @@
                   <md-checkbox aria-label="Select all rows"></md-checkbox>
                 </th>
 
-                <th class="md-table-has-sort md-table-sorted md-table-is-numeric">
-                  <md-icon class="material-icons">arrow_upward</md-icon>
-                  <span class="md-table-column-text">Dessert (100g serving)</span>
+                <th class="md-table-has-sort md-table-sorted">
+                  <div class="md-table-sortable">
+                    <md-icon class="md-table-sort-icon material-icons">arrow_upward</md-icon>
+                    <span>Dessert (100g serving)</span>
+                  </div>
+                </th>
+
+                <th>
+                  <span>Type</span>
                 </th>
 
                 <th class="md-table-has-sort md-table-is-numeric">
-                  <md-icon class="material-icons">arrow_upward</md-icon>
-                  <span class="md-table-column-text">
-                    Calories
-                    <md-tooltip class="">The total amout of food energy in the given serving size.</md-tooltip>
-                  </span>
+                  <div class="md-table-sortable">
+                    <md-icon class="md-table-sort-icon material-icons">arrow_upward</md-icon>
+                    <span>
+                      Calories
+                      <md-tooltip md-delay="150">The total amount of food energy in the given serving size.</md-tooltip>
+                    </span>
+                  </div>
                 </th>
 
                 <th class="md-table-has-sort md-table-is-numeric">
-                  <md-icon class="material-icons">arrow_upward</md-icon>
-                  <span class="md-table-column-text">Fat (g)</span>
+                  <div class="md-table-sortable">
+                    <md-icon class="md-table-sort-icon material-icons">arrow_upward</md-icon>
+                    <span>Fat (g)</span>
+                  </div>
                 </th>
 
                 <th class="md-table-is-numeric">
-                  <span class="md-table-column-text">Carbs (g)</span>
+                  <span>Carbs (g)</span>
                 </th>
 
                 <th class="md-table-is-numeric">
-                  <span class="md-table-column-text">Protein (g)</span>
+                  <span>Protein (g)</span>
                 </th>
 
-                <th class="md-table-is-numeric">
-                  <span class="md-table-column-text">Sodium (mg)</span>
+                <th>
+                  <md-icon class="material-icons">comment</md-icon>
+                  <span>Comments</span>
                 </th>
 
-                <th class="md-table-is-numeric">
-                  <span class="md-table-column-text">Calcium (%)</span>
-                </th>
-
-                <th class="md-table-is-numeric">
-                  <span class="md-table-column-text">Iron (%)</span>
-                </th>
+                <th class="md-table-inline-edit"></th>
               </tr>
             </thead>
 
@@ -73,27 +114,55 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Frozen Yogurt</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">159</td>
                 <td class="md-table-is-numeric">6.0</td>
                 <td class="md-table-is-numeric">6.0</td>
                 <td class="md-table-is-numeric">6.0</td>
-                <td class="md-table-is-numeric">6.0</td>
-                <td class="md-table-is-numeric">6.0</td>
-                <td class="md-table-is-numeric">6.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
-              <tr class="md-table-is-selected">
+              <tr>
                 <td class="md-table-column-selection">
-                  <md-checkbox aria-label="Select row" ng-checked="true"></md-checkbox>
+                  <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Ice cream Sandwich</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">237</td>
                 <td class="md-table-is-numeric">9.0</td>
                 <td class="md-table-is-numeric">9.0</td>
                 <td class="md-table-is-numeric">9.0</td>
-                <td class="md-table-is-numeric">9.0</td>
-                <td class="md-table-is-numeric">9.0</td>
-                <td class="md-table-is-numeric">9.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -101,13 +170,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Eclair</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">262</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -115,13 +198,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Gingerbread</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">305</td>
                 <td class="md-table-is-numeric">3.7</td>
                 <td class="md-table-is-numeric">3.7</td>
                 <td class="md-table-is-numeric">3.7</td>
-                <td class="md-table-is-numeric">3.7</td>
-                <td class="md-table-is-numeric">3.7</td>
-                <td class="md-table-is-numeric">3.7</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -129,13 +226,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Honeycomb</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">356</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
-                <td class="md-table-is-numeric">16.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -143,13 +254,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Jelly bean</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">375</td>
                 <td class="md-table-is-numeric">0.0</td>
                 <td class="md-table-is-numeric">0.0</td>
                 <td class="md-table-is-numeric">0.0</td>
-                <td class="md-table-is-numeric">0.0</td>
-                <td class="md-table-is-numeric">0.0</td>
-                <td class="md-table-is-numeric">0.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -157,13 +282,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Donut</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">308</td>
                 <td class="md-table-is-numeric">3.2</td>
                 <td class="md-table-is-numeric">3.2</td>
                 <td class="md-table-is-numeric">3.2</td>
-                <td class="md-table-is-numeric">3.2</td>
-                <td class="md-table-is-numeric">3.2</td>
-                <td class="md-table-is-numeric">3.2</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -171,27 +310,55 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Marshmallow</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">452</td>
                 <td class="md-table-is-numeric">25.0</td>
                 <td class="md-table-is-numeric">25.0</td>
                 <td class="md-table-is-numeric">25.0</td>
-                <td class="md-table-is-numeric">25.0</td>
-                <td class="md-table-is-numeric">25.0</td>
-                <td class="md-table-is-numeric">25.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
-              <tr>
+              <tr class="md-table-is-selected">
                 <td class="md-table-column-selection">
-                  <md-checkbox aria-label="Select row"></md-checkbox>
+                  <md-checkbox aria-label="Select row" ng-checked="true"></md-checkbox>
                 </td>
                 <td>Lollipop</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">518</td>
                 <td class="md-table-is-numeric">26.0</td>
                 <td class="md-table-is-numeric">26.0</td>
                 <td class="md-table-is-numeric">26.0</td>
-                <td class="md-table-is-numeric">26.0</td>
-                <td class="md-table-is-numeric">26.0</td>
-                <td class="md-table-is-numeric">26.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
 
               <tr>
@@ -199,13 +366,27 @@
                   <md-checkbox aria-label="Select row"></md-checkbox>
                 </td>
                 <td>Kitkat</td>
+                <td>
+                  <md-select placeholder="Type" ng-model="type" class="md-block">
+                    <md-option>Icecream</md-option>
+                    <md-option>Pastry</md-option>
+                    <md-option>Other</md-option>
+                  </md-select>
+                </td>
                 <td class="md-table-is-numeric">236</td>
                 <td class="md-table-is-numeric">30.0</td>
                 <td class="md-table-is-numeric">30.0</td>
                 <td class="md-table-is-numeric">30.0</td>
-                <td class="md-table-is-numeric">30.0</td>
-                <td class="md-table-is-numeric">30.0</td>
-                <td class="md-table-is-numeric">30.0</td>
+                <td>
+                  <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Add a comment">
+                  </md-input-container>
+                </td>
+                <td class="md-table-inline-edit">
+                  <md-button class="md-table-inline-edit-button md-icon-button">
+                    <md-icon class="material-icons">edit</md-icon>
+                  </md-button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -223,19 +404,17 @@
 
           <span>1-10 of 100</span>
 
-          <md-button class="md-icon-button material-icons md-table-previous" aria-label="Previous Page">keyboard_arrow_left</md-button>
-          <md-button class="md-icon-button material-icons md-table-next" aria-label="Next Page" ng-disabled="true">keyboard_arrow_right</md-button>
+          <md-button class="md-icon-button material-icons md-table-previous" aria-label="Previous Page" ng-disabled="true">keyboard_arrow_left</md-button>
+          <md-button class="md-icon-button material-icons md-table-next" aria-label="Next Page">keyboard_arrow_right</md-button>
         </div>
-      </md-table>
+      </div>
     </md-card>
 
     <script src="angular/angular.min.js"></script>
     <script src="angular-animate/angular-animate.min.js"></script>
     <script src="angular-aria/angular-aria.min.js"></script>
-    <script src="angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="angular-messages/angular-messages.min.js"></script>
     <script src="angular-material/angular-material.min.js"></script>
-    <script src="angular-route/angular-route.min.js"></script>
     <script src="angular-material-data-table.js"></script>
+    <script src="DessertsController.js"></script>
   </body>
 </html>
