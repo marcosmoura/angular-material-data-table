@@ -6,6 +6,6 @@ import './tasks/sass';
 import './tasks/eslint';
 import './tasks/watch';
 
-gulp.task('default', function() {
+gulp.task('default', () => {
   runSequence('clean', ['webpack', 'eslint-all', 'sass'], 'watch');
 });

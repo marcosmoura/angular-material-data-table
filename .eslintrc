@@ -1,4 +1,13 @@
 {
+  {
+    "extends": "angular"
+  },
+  "globals": {
+    "angular": true
+  },
+  "plugins": [
+    "angular"
+  ],
   "ecmaFeatures": {
     "arrowFunctions": true,
     "classes": true,
