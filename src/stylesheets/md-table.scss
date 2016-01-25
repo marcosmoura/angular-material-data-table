@@ -21,13 +21,9 @@
   display: flex;
   flex-flow: column wrap;
 
-  md-toolbar {
+  md-toolbar:not(.md-table-alternate-toolbar) {
     background-color: #fff;
     color: rgba(0, 0, 0, .87);
-  }
-
-  .md-toolbar-tools {
-    padding: 0 24px;
 
     .md-button:not(.md-raised) {
       &,
@@ -35,6 +31,10 @@
         color: rgba(0, 0, 0, .54);
       }
     }
+  }
+
+  .md-toolbar-tools {
+    padding: 0 24px;
   }
 
   table {
@@ -175,6 +175,7 @@
     input {
       min-width: 120px;
       border-bottom: none;
+      line-height: 1.3em;
       @include placeholder();
 
       &:focus {
