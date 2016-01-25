@@ -1,7 +1,7 @@
 {
+  "projectName": "Angular Material Data Table",
   "name": "angular-material-data-table",
   "description": "Angular Material Data Table",
-  "developers": "Marcos Moura",
   "version": "0.0.0",
   "repository": {
     "type": "git",
@@ -17,13 +17,16 @@
     "Table",
     "Data"
   ],
-  "main": "index.js",
+  "main": "dest/angular-material-data-table.js",
   "license": "MIT",
   "ignore": [
     "node_modules",
     "bower_components"
   ],
   "dependencies": {
-
+    "angular": "^1.4.9",
+    "angular-animate": "^1.4.9",
+    "angular-aria": "^1.4.9",
+    "angular-material": "^1.0.2"
   }
 }
