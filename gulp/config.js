@@ -1,8 +1,6 @@
 import path from 'path';
 
-let joinPath = (...paths) => {
-  return path.normalize(path.join.apply(this, paths));
-};
+let joinPath = (...paths) => path.normalize(path.join.apply(this, paths));
 
 let srcFolder = 'src';
 let destFolder = 'dest';

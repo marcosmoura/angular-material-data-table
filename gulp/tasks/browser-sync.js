@@ -5,7 +5,7 @@ import config from '../config';
 let browserSync = _browsersync.create();
 
 gulp.task('browserSync', () => {
-  browserSync.init({
+  return browserSync.init({
     notify: false,
     logLevel: 'silent',
     port: 9000,

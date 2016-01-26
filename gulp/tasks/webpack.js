@@ -5,7 +5,7 @@ import util from 'gulp-util';
 import config from '../config';
 
 gulp.task('webpack', () => {
-  gulp.src('./index.js')
+  return gulp.src('./index.js')
     .pipe(gulpWebpack({
       output: {
         filename: config.mainScript
