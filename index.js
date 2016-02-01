@@ -1,1 +1,1 @@
-require('./src/main.js');
+require('./dest/angular-material-data-table.js');

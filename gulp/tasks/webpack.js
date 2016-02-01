@@ -1,11 +1,10 @@
 import gulp from 'gulp';
 import gulpWebpack from 'webpack-stream';
 import webpack from 'webpack';
-import util from 'gulp-util';
 import config from '../config';
 
 gulp.task('webpack', () => {
-  return gulp.src('./index.js')
+  return gulp.src('./src/main.js')
     .pipe(gulpWebpack({
       output: {
         filename: config.mainScript
@@ -22,10 +21,6 @@ gulp.task('webpack', () => {
           }
         ]
       }
-    }, webpack, (error) => {
-      if (error) {
-        throw new util.PluginError('webpack', error);
-      }
-    }))
+    }, webpack, () => 'done'))
     .pipe(gulp.dest(config.destFolder));
 });

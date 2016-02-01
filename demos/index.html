@@ -10,8 +10,8 @@
     <link href="demo.css" rel="stylesheet">
   </head>
 
-  <body ng-app="angular-material-data-table" ng-cloak>
-    <!-- <md-table md-card="md-whiteframe-z2" md-selection="desserts.selectedDesserts" md-pagination="[10, 20, 50, 100]">
+  <body ng-app="angular-material-data-table" ng-controller="DessertsController as desserts" ng-cloak>
+    <md-table md-card="md-whiteframe-z2" md-selection="desserts.selectedDesserts" md-rows="[10, 20, 50, 100]" md-limit="10" md-total="223" md-inline-edit>
       <md-toolbar>
         <h1 class="md-toolbar-tools">Nutrition</h1>
       </md-toolbar>
@@ -22,9 +22,10 @@
         <md-table-cell md-numeric md-sort="fat">Fat (g)</md-table-cell>
         <md-table-cell md-numeric md-sort="carbs">Carbs (g)</md-table-cell>
         <md-table-cell md-numeric>Protein (g)</md-table-cell>
-        <md-table-cell md-numeric>Sodium (mg)</md-table-cell>
-        <md-table-cell md-numeric>Calcium (%)</md-table-cell>
-        <md-table-cell md-numeric>Iron (%)</md-table-cell>
+        <md-table-cell>
+          <md-icon class="material-icons">comment</md-icon>
+          <span>Comments</span>
+        </md-table-cell>
       </md-table-head>
 
       <md-table-body md-data="dessert in desserts.get()">
@@ -33,11 +34,9 @@
         <md-table-cell md-numeric>{{ dessert.fat }}</md-table-cell>
         <md-table-cell md-numeric>{{ dessert.carbs }}</md-table-cell>
         <md-table-cell md-numeric>{{ dessert.protein }}</md-table-cell>
-        <md-table-cell md-numeric>{{ dessert.sodium }}</md-table-cell>
-        <md-table-cell md-numeric>{{ dessert.calcium }}</md-table-cell>
-        <md-table-cell md-numeric>{{ dessert.iron }}</md-table-cell>
+        <md-table-cell md-edit>{{ dessert.comment || 'Add a comment' }}</md-table-cell>
       </md-table-body>
-    </md-table> -->
+    </md-table>
 
     <md-card class="md-whiteframe-z2">
       <div class="md-table">
@@ -125,11 +124,7 @@
                 <td class="md-table-is-numeric">6.0</td>
                 <td class="md-table-is-numeric">6.0</td>
                 <td class="md-table-is-numeric">6.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -153,11 +148,7 @@
                 <td class="md-table-is-numeric">9.0</td>
                 <td class="md-table-is-numeric">9.0</td>
                 <td class="md-table-is-numeric">9.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -181,11 +172,7 @@
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -209,11 +196,7 @@
                 <td class="md-table-is-numeric">3.7</td>
                 <td class="md-table-is-numeric">3.7</td>
                 <td class="md-table-is-numeric">3.7</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -237,11 +220,7 @@
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
                 <td class="md-table-is-numeric">16.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -265,11 +244,7 @@
                 <td class="md-table-is-numeric">0.0</td>
                 <td class="md-table-is-numeric">0.0</td>
                 <td class="md-table-is-numeric">0.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -293,11 +268,7 @@
                 <td class="md-table-is-numeric">3.2</td>
                 <td class="md-table-is-numeric">3.2</td>
                 <td class="md-table-is-numeric">3.2</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -321,11 +292,7 @@
                 <td class="md-table-is-numeric">25.0</td>
                 <td class="md-table-is-numeric">25.0</td>
                 <td class="md-table-is-numeric">25.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -349,11 +316,7 @@
                 <td class="md-table-is-numeric">26.0</td>
                 <td class="md-table-is-numeric">26.0</td>
                 <td class="md-table-is-numeric">26.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -377,11 +340,7 @@
                 <td class="md-table-is-numeric">30.0</td>
                 <td class="md-table-is-numeric">30.0</td>
                 <td class="md-table-is-numeric">30.0</td>
-                <td>
-                  <md-input-container md-no-float class="md-block">
-                    <input type="text" placeholder="Add a comment">
-                  </md-input-container>
-                </td>
+                <td class="md-table-edit-column" md-ink-ripple>Add a comment</td>
                 <td class="md-table-inline-edit">
                   <md-button class="md-table-inline-edit-button md-icon-button">
                     <md-icon class="material-icons">edit</md-icon>
@@ -410,10 +369,34 @@
       </div>
     </md-card>
 
+    <md-dialog class="md-table-dialog md-whiteframe-2dp">
+      <md-dialog-content class="md-dialog-content">
+        <md-input-container md-no-float class="md-block">
+          <input type="text" id="comment" ng-model="comment" maxlength="50" md-maxlength="50" placeholder="Comment">
+        </md-input-container>
+      </md-dialog-content>
+    </md-dialog>
+
+    <md-dialog class="md-table-dialog md-table-dialog-large md-whiteframe-2dp">
+      <md-dialog-content class="md-dialog-content">
+        <h2 class="md-title">Add comment</h2>
+
+        <md-input-container md-no-float class="md-block">
+          <input type="text" id="comment" ng-model="comment" maxlength="50" md-maxlength="50" placeholder="Comment">
+        </md-input-container>
+      </md-dialog-content>
+
+      <md-dialog-actions class="md-dialog-actions">
+        <md-button class="md-primary">Cancel</md-button>
+        <md-button class="md-primary">Save</md-button>
+      </md-dialog-actions>
+    </md-dialog>
+
     <script src="angular/angular.js"></script>
     <script src="angular-animate/angular-animate.js"></script>
     <script src="angular-aria/angular-aria.js"></script>
     <script src="angular-material/angular-material.js"></script>
     <script src="angular-material-data-table.js"></script>
+    <script src="DessertsController.js"></script>
   </body>
 </html>

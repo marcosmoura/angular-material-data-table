@@ -20,6 +20,17 @@
 .md-table {
   display: flex;
   flex-flow: column wrap;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .010em;
+  line-height: 20px;
+
+  .md-table-container {
+    flex: 1;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 
   md-toolbar:not(.md-table-alternate-toolbar) {
     background-color: #fff;
@@ -34,7 +45,7 @@
   }
 
   .md-toolbar-tools {
-    padding: 0 24px;
+    padding: 0 14px 0 24px;
   }
 
   table {
@@ -79,8 +90,8 @@
     }
 
     &.md-table-inline-edit {
-      max-width: 36px;
-      padding-right: 10px;
+      width: 36px;
+      padding-right: 8px;
       box-sizing: content-box;
     }
   }
@@ -105,7 +116,7 @@
         }
       }
 
-      &:nth-child(2) .md-table-sort-icon {
+      &:nth-child(1) .md-table-sort-icon {
         margin: 0 0 0 6px;
         order: 1;
       }
@@ -164,24 +175,10 @@
     margin: 0;
   }
 
-  md-input-container {
-    margin: 0;
-    padding: 0;
-
-    &.md-input-focused input {
-      padding-bottom: 1px;
-    }
-
-    input {
-      min-width: 120px;
-      border-bottom: none;
-      line-height: 1.3em;
-      @include placeholder();
-
-      &:focus {
-        @include placeholder(rgba(0, 0, 0, .54));
-      }
-    }
+  .md-table-edit-column {
+    position: relative;
+    cursor: pointer;
+    color: rgba(0, 0, 0, .26);
   }
 
   .md-errors-spacer {
@@ -204,18 +201,18 @@
       color: rgba(0, 0, 0, .87);
 
       :first-child {
+        height: 22px;
         transform: translate3d(0, 1px, 0);
       }
     }
 
     .md-select-icon {
-      transform: translate3d(0, 0, 0);
       font-size: 11px;
     }
   }
 
   .md-table-inline-edit-button {
-    $button-size: 36px;
+    $button-size: 40px;
 
     width: $button-size;
     height: $button-size;
@@ -232,8 +229,38 @@
   }
 }
 
-.md-table-container {
-  flex: 1;
-  overflow-x: auto;
-  overflow-y: hidden;
+.md-table-dialog {
+  margin: 0;
+  position: absolute;
+  z-index: 60;
+  border-radius: 3px;
+
+  &.md-table-dialog-large {
+    .md-dialog-content {
+      padding: 24px 24px 2px;
+    }
+  }
+
+  .md-dialog-content {
+    padding: 12px 24px 2px;
+  }
+
+  md-input-container {
+    margin: 0;
+    padding: 2px 0;
+  }
+
+  input {
+    font-size: 13px;
+    @include placeholder;
+  }
+
+  .md-char-counter {
+    font-size: 13.5px;
+    color: rgba(0, 0, 0, .54);
+  }
+
+  .mb-button {
+    min-width: 64px;
+  }
 }
